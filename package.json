@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "chart.js": "^4.2.1",
+    "mssql": "^9.1.1",
+    "node-fetch": "^3.3.1",
+    "odbc": "^2.4.7"
+  }
+}

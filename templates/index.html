@@ -1,0 +1,197 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chart </title>
+    <link type="text/css" rel="stylesheet" href="/static/styles/style1.css"/>
+    <!-- Import Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div id="sidebar">
+     
+      <img src="/static/logo/logo.png">
+      <ul>
+        <li><button onclick="handleClick('ANALOG I/P(5V)')" class="turu1" >ANALOG I/P(5V)</button></li>
+        <li><button onclick="handleClick1('ISO.DIGITAL I/P')" class="turu2" >ISO.DIGITAL I/P</button></li>
+        <li><button onclick="handleClick2('4-20mA I/P')" class="turu3">4-20mA I/P</button></li>
+        <li><button onclick="handleClick4('output')" class="turu4">OUTPUT</button></li>
+      </ul>
+      <button id="dark-mode-btn">
+        <input onclick="toggleDarkMode()" type="checkbox" id="switch" /><label for="switch"
+            >Toggle</label>
+            <p id="mode">Light</p>
+            <p id="mode1">Dark</p>
+          </button>
+        </div>
+        
+        <div class="gayab">
+          <input type="checkbox" id="toggle1" />
+          <label for="toggle1" class="toggleWrapper1">
+            <div class="toggle1"></div>
+          </label>
+        </div>
+        
+        <div class="container-fluid">
+          <div class="chart-container">
+            <!-- Create a canvas element for the first chart -->
+            <div class="chart-info" id="chartInfo"></div>
+            <canvas id="myChart"></canvas>
+            <!-- Create a canvas element for the second chart -->
+            <div class="chart-info" id="chartInfo2"></div>
+            <canvas id="myChart2"></canvas>
+          </div>
+        
+          <div class="chart-container1">
+            <!-- Create a canvas element for the chart -->
+            <div class="chart-info" id="chartInfo3"></div>
+            <canvas id="myChart3"></canvas>
+        
+            <div class="chart-info" id="chartInfo4"></div>
+            <canvas id="myChart4"></canvas>
+          </div>
+        
+          <div class="chart-container2">
+            <!-- Create a canvas element for the chart -->
+            <div class="chart-info" id="chartInfo5"></div>
+            <canvas id="myChart5"></canvas>
+        
+            <div class="chart-info" id="chartInfo6"></div>
+            <canvas id="myChart6"></canvas>
+          </div>
+        
+          <div class="chart-container3">
+            <!-- Create a canvas element for the chart -->
+            <div class="chart-info" id="chartInfo7"></div>
+            <canvas id="myChart7"></canvas>
+        
+            <div class="chart-info" id="chartInfo8"></div>
+            <canvas id="myChart8"></canvas>
+          </div>
+
+          <!-- 4-20mA SECTION -->
+         
+          <div class="chart-container9">
+            <!-- Create a canvas element for the chart -->
+            <div class="chart-info" id="chartInfo9"></div>
+            <canvas id="myChart9"></canvas>
+        
+            <div class="chart-info" id="chartInfo10"></div>
+            <canvas id="myChart10"></canvas>
+          </div>
+     
+          <div class="chart-container10">
+            <!-- Create a canvas element for the chart -->
+            <div class="chart-info" id="chartInfo11"></div>
+            <canvas id="myChart11"></canvas>
+        
+            <div class="chart-info" id="chartInfo12"></div>
+            <canvas id="myChart12"></canvas>
+          </div>
+          
+
+
+      <div class="out">
+          <div class="showme1">
+           <h3 class="ao">ANALOG OUTPUT</h3>
+           <h3 class="do">DIGITAL OUTPUT</h3>
+           <hr class="midLine"/>
+           <div class="ao_Container">
+            <div class="form-container">
+              <form id="form1">
+                <p class='analog_label' id='analog_label1'>Analog Output 1</p>
+                <input type="number"  id='ip1' placeholder="( 0.0 - 5.0 )" min="0.0" max="5.0" step="0.1">
+                <input type="submit" id="sub1" value="Submit">
+              </form>
+            </div>
+            <div class="form-container2">
+              <form id="form2">
+                <p class='analog_label' id='analog_label2'>Analog Output 2</p>
+                <input type="number" id='ip2'placeholder="( 0.0 - 5.0 )" min="0.0" max="5.0" step="0.1">
+                <!-- <input type="submit" value="Submit"> -->
+              </form>
+            </div>
+            <div class="form-container3">
+              <form id="form3">
+                <p class='analog_label' id='analog_label3'>Analog Output 3</p>
+                <input type="number" id='ip3'placeholder="( 0.0 - 5.0 )" min="0.0" max="5.0" step="0.1">
+                <!-- <input type="submit" value="Submit"> -->
+              </form>
+            </div>
+            <div class="form-container4">
+              <form id="form4">
+                <p class='analog_label' id='analog_label4'> Analog Output 4</p>
+                <input type="number" id='ip4' placeholder="( 0.0 - 5.0 )" min="0.0" max="5.0" step="0.1">
+                <!-- <input type="submit" value="Submit"> -->
+              </form>
+            </div>
+            <div id="result"></div>
+            
+             
+            </div>
+
+            <div>
+            <div class="toggle-buttons">
+              <button class="toggle-button"></button>
+              <button class="toggle-button"></button>
+              <button class="toggle-button"></button>
+              <button class="toggle-button"></button>
+            </div>
+            <div class="stae">
+              <p>Digital Output 1 is <span class="toggle-state">OFF</span>.</p>
+              <p>Digital Output 2 is <span class="toggle-state">OFF</span>.</p>
+              <p>Digital Output 3 is <span class="toggle-state">OFF</span>.</p>
+              <p>Digital Output 4 is <span class="toggle-state">OFF</span>.</p>
+            </div>
+            </div>
+          </div>
+      </div>
+        
+        
+        <script src="/static/JS/home.js"></script>
+        <script src="/static/JS/fetchData.js"></script>
+        <script>
+          let submit1=document.getElementById('sub1');
+          let ip1=document.getElementById('ip1');
+          let ip2=document.getElementById('ip2');
+          let ip3=document.getElementById('ip3');
+          let ip4=document.getElementById('ip4');
+          submit1.addEventListener('click', function(e){
+            e.preventDefault();
+            if(!ip1.value){
+            ip1.value=0.00;
+            }
+            if(!ip2.value){
+            ip2.value=0.00; 
+            }
+            if(!ip3.value){
+            ip3.value=0.00;
+            }
+            if(!ip4.value){
+            ip4.value=0.00;
+            }
+            let result = ip1.value + ','+ip2.value+',' + ip3.value +','+ ip4.value;
+          // Sending data to url
+          const url = 'http://192.168.1.79:120/aodata';
+          const body = { [`Analog_Output_Value`]: result };
+          return fetch(url, {
+                        method: 'POST',
+                        body: JSON.stringify(body),
+                        headers: {
+                          'Content-Type': 'application/json',
+                        },
+                      }).then((response) => {
+                        if (response.ok) {
+                          console.log('Data sent successfully.');
+                          return Promise.resolve();
+                        } else {
+                          throw new Error('Error sending data.');
+                        }
+                      }).catch((error) => {
+                        console.log(error);
+                        alert('Error sending data. Please try again.');
+                      });
+          })
+      </script>
+    </body>
+  </html>        
+        

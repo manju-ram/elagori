@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DQA</title>
+    <style>
+    th{
+        position: absolute;
+        top: 78px;
+        left: 29px;
+    }
+    table{
+        margin-left: 60px;
+        margin-top: 50px;
+    }
+    th#theader2 {
+        margin-left: 262px;;
+        
+    }
+    td{
+        padding-right: 200px;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>DATA</h1>
+  <table id="data_table">
+    <th id="theader1">CHANNEL ID </th>
+    <th id="theader2">VALUES</th>
+
+  </table>
+    <p></p>
+    <script>
+        let data_table=document.getElementById("data_table");
+      let url = "http://192.168.1.79:100/data/";
+      fetch(url)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          
+           var latestData=data.reverse();
+           latestData.map((x)=>{
+            var row = data_table.insertRow(0);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            cell1.innerHTML = x.CHANNEL;
+            cell2.innerHTML = x.VALUE;
+
+           })
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    </script>
+  </body>
+</html>
