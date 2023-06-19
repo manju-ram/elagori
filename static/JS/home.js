@@ -22,7 +22,7 @@ toggleButtons.forEach((toggleButton, index) => {
 });
 
 function sendData(outputNumber, data) {
-  const url = "http://192.168.1.79:120/dodata";
+  const url = "/dodata";
 
   const digitalOutputs = Array.from(toggleButtons).map((button) =>
     button.classList.contains("on") ? "1.00" : "0.00"
