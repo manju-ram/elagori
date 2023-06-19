@@ -171,7 +171,7 @@
             }
             let result = ip1.value + ','+ip2.value+',' + ip3.value +','+ ip4.value;
           // Sending data to url
-          const url = 'http://192.168.1.79:120/aodata';
+          const url = '/aodata';
           const body = { [`Analog_Output_Value`]: result };
           return fetch(url, {
                         method: 'POST',
