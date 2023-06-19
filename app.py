@@ -13,14 +13,20 @@ def index():
 @app.route('/data/', methods=['POST', 'GET'])
 def data(): 
     global latest_data
-    if  request.method == 'GET':
+    if request.method == 'GET':
         sorted_data = [latest_data[str(i)] for i in sorted(latest_data, key=int)]
         return jsonify(sorted_data)
     else:
         json_data = request.get_json()
-        channel = str(json_data['CHANNEL'])
-        value = str(json_data['VALUE'])
-        latest_data[channel] = {'CHANNEL': channel, 'VALUE': value}
+        if isinstance(json_data, list):
+            for item in json_data:
+                channel = str(item['CHANNEL'])
+                value = str(item['VALUE'])
+                latest_data[channel] = {'CHANNEL': channel, 'VALUE': value}
+        else:
+            channel = str(json_data['CHANNEL'])
+            value = str(json_data['VALUE'])
+            latest_data[channel] = {'CHANNEL': channel, 'VALUE': value}
         return 'Success'
 @app.route('/dodata', methods=['GET', 'POST'])
 def handle_requests():
