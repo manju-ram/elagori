@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 
+
 app = Flask(__name__)
 received_data = None
 received_data2 = None
