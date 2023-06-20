@@ -6,6 +6,7 @@ received_data = None
 received_data2 = None
 latest_data = {}
 
+
 # Define a route to get the temperature data
 @app.route('/')
 def index():
